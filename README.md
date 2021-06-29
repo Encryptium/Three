@@ -9,4 +9,4 @@ It is called `Three` because each level has three keys, and it is your goal to c
 The goal of the game is to avoid obstacles and spikes (red cylinders). Collect all the keys on the level, and you can move on.
 
 ## What about this Repository?
-This repository contains the assets for the game.
+This repository contains the assets and .cs scripts to run the game.
