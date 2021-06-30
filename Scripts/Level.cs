@@ -7,6 +7,7 @@ public class Level : MonoBehaviour
 {
     [SerializeField]
     private int _levelIndex = 0;
+    public int levelCount;
     // [SerializeField]
     // private int _collectedKeys = 0;
     // [SerializeField]
@@ -107,6 +108,7 @@ public class Level : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = _resetPos;
         _levelIndex = 0;
+        levelCount = _levelIndex + 1;
         GameObject[] _currentSpikes = GameObject.FindGameObjectsWithTag("Spikes");
         GameObject[] _currentObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         GameObject[] _currentKeys = GameObject.FindGameObjectsWithTag("Key");
@@ -131,6 +133,7 @@ public class Level : MonoBehaviour
 
     public void nextLevel() 
     {
+        levelCount = _levelIndex + 1;
         // Debug.Log($"Completed level {_level-1}, and moving on to {_level}");
         // I'm so confused right now
         Debug.Log("YOU WON!!! Rendering next level...");
@@ -177,6 +180,7 @@ public class Level : MonoBehaviour
         // {
         //     Debug.Log(line);
         // }
+        levelCount = _levelIndex + 1;
         Debug.Log(_levelIndex);
         Debug.Log(_levels.GetLength(0));
         if (_levelIndex == _levels.GetLength(0))
