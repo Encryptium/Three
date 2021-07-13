@@ -1,7 +1,8 @@
 # Three
 Three is a simple leveling game made in Unity with C#. 
-Newest Version: https://three.jonathanwang2018.repl.co/beta/latest/
-[Here is an the demo version](https://three.jonathan2018.repl.co/releases/demo/)
+[Newest Version](https://three.jonathanwang2018.repl.co/beta/latest/)
+
+[Demo version](https://three.jonathan2018.repl.co/releases/demo/)
 
 ### Why is it called Three
 It is called `Three` because each level has three keys, and it is your goal to collect all of them
