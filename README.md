@@ -1,9 +1,7 @@
 # Three
 Three is a simple leveling game made in Unity with C#. 
 
-[Newest Version](https://three.jonathanwang2018.repl.co/beta/latest/)
-
-[Demo version](https://three.jonathan2018.repl.co/releases/demo/)
+[WebGL Demo version](https://three.jonathan2018.repl.co/WebGL/)
 
 ## Download the Game!
 Three works on macOS & Windows. Choose your version.
