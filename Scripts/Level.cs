@@ -6,7 +6,7 @@ using System.IO;
 public class Level : MonoBehaviour
 {
     [SerializeField]
-    private int _levelIndex = 0;
+    private int _levelIndex;
     public int levelCount;
     // [SerializeField]
     // private int _collectedKeys = 0;
@@ -77,7 +77,229 @@ public class Level : MonoBehaviour
             "$#        ",
             " #        ",
             "          "
+        },
+
+        {
+            "#^#^#^# $^",
+            "######^ ^#", 
+            "          ",
+            "#    #####",
+            "^     $  ^",
+            "     ## ##",
+            " ^#####^##",
+            " # ^      ",
+            "        ^ ",
+            "$#######  "
+        },
+
+        {
+            "#$     ^##",
+            "# #^## ^ #", 
+            "^ ^  ^    ",
+            "# #^# #^ #",
+            "^$        ",
+            "# ###^ ^##",
+            "# ####    ",
+            "# #^####^ ",
+            "^         ",
+            "#$##      "
+        },
+
+        {
+            "    ^^^###",
+            "^      #$#", 
+            "   ^  ^# #",
+            "# $#   ^ ^",
+            "#  #   #  ",
+            "####   #  ",
+            "       #  ",
+            "####^  #  ",
+            "^ $       ",
+            "####   #  "
+        },
+
+        {
+            "^   ^####^",
+            "# #  # $  ", 
+            "  ^^^#### ",
+            "  ^$^   ^ ",
+            "  # #   ^ ",
+            "     #### ",
+            "  ^       ",
+            " #$ #     ",
+            " ^########",
+            "          "
+        },
+
+        {
+            "#$#   ####",
+            "^     #  #", 
+            "#^^^  ^^^#",
+            "    ^####^",
+            "       $  ",
+            "      ###^",
+            "#^^^  ^^^#",
+            "####^     ",
+            "#$        ",
+            "####^     "
+        },
+
+        {
+            "     ###  ",
+            "     #$#  ", 
+            "    ^  ^  ",
+            "      ####",
+            "        $ ",
+            "^     ^^^^",
+            "#   #     ",
+            "#   #     ",
+            "# $ #     ",
+            "#####     "
+        },
+
+        {
+            "          ",
+            "          ",
+            "  ##### ^ ", 
+            "          ",
+            "  ####### ",
+            "  #  $  # ",
+            "  ####### ",
+            "  $     $ ",
+            "  ####### ",
+            "   $      "
+        },
+
+        {
+            "^#^$#   # ",
+            "#$^    # ^", 
+            "# ^   #^  ",
+            "     #^^^ ",
+            "     $    ",
+            "^^^  #^   ",
+            "^   #     ",
+            "  ^#      ",
+            "  #       ",
+            " #        "
+        },
+
+        {
+            "####^    $",
+            "   #  ####", 
+            "   #  #   ",
+            "   #  #^ ^",
+            "^ ^   #   ",
+            "#$#     ^ ",
+            "###   ###^",
+            "    ^    $",
+            " ^  ######",
+            "  ^       "
+        },
+
+        {
+            "  $^  # ##",
+            " ###  ####", 
+            "      #   ",
+            "   ^#^    ",
+            " ^  $  ^  ",
+            "   ^#^    ",
+            " #    #  #",
+            "    ^     ",
+            " ##  # ## ",
+            " ###$## # "
+        },
+
+        {
+            "$      ^  ",
+            "###### ^  ", 
+            "^         ",
+            "      ^$^ ",
+            "^  #######",
+            "          ",
+            "$^        ",
+            "#####  ^^^",
+            "    ^    ^",
+            "    ^ #   "
+        },
+
+        {
+            "^^#   ^  $",
+            "$^#      ^", 
+            " ^#   ^   ",
+            " ^#       ",
+            " ^#      ^",
+            "     #^   ",
+            "^    #^   ",
+            "   ^ #^   ",
+            "^$   #^   ",
+            "#^   #    "
+        },
+
+        {
+            "$^   ####^#",
+            "   ^    ^#", 
+            "####### ##",
+            "          ",
+            "     #^^##",
+            "^    # $ ^",
+            "       #^ ",
+            " ^      # ",
+            " ##^ ^### ",
+            "$^        "
+        },
+
+        {
+            "###     ##",
+            "^   ^$^  ^", 
+            "^    ^   ^",
+            "^    ^   ^",
+            "#### ^ ## ",
+            "       ^$ ",
+            " # ^# #^##",
+            "$ ^       ",
+            "   # #    ",
+            "   #      "
+        },
+
+        {
+            "       ###",
+            "       #$#", 
+            "       ^ ^",
+            "## #^ ^   ",
+            "#^$#      ",
+            "^^        ",
+            "   ^ ##^##",
+            "     # $ #",
+            "     #^ ^#",
+            "          "
+        },
+
+        {
+            " $  ^  ^  ",
+            "^ ^  ^ $  ", 
+            "       ^  ",
+            "     ^   ^",
+            "    ^     ",
+            "  ^   ^   ",
+            "    $     ",
+            "####^ ^###",
+            "          ",
+            "          "
+        },
+
+        {
+            "  ^^^^^^  ",
+            "    $  ^  ",
+            "  ^^^^^^  ",
+            "  ^  $    ",
+            "  ^^^^^^  ",
+            "    $     ",
+            "  ^^^^^^  ",
+            "  ^    ^  ",
+            "  ^    ^  ",
+            "  ^^^^^^  "
         }
+
     };
 
     // Start is called before the first frame update
@@ -88,6 +310,7 @@ public class Level : MonoBehaviour
         // This will only run once, and it will be to generate the first level
         // Debug.Log("Start");
         // Get specific currently existing objects in game
+        _levelIndex = PlayerPrefs.GetInt("Level");
         renderLevel();
         
     }
@@ -109,6 +332,7 @@ public class Level : MonoBehaviour
         player.transform.position = _resetPos;
         _levelIndex = 0;
         levelCount = _levelIndex + 1;
+        PlayerPrefs.SetInt("Level", _levelIndex);
         GameObject[] _currentSpikes = GameObject.FindGameObjectsWithTag("Spikes");
         GameObject[] _currentObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         GameObject[] _currentKeys = GameObject.FindGameObjectsWithTag("Key");
@@ -131,9 +355,36 @@ public class Level : MonoBehaviour
         nextLevel();
     }
 
+    public void restartLevel() {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = _resetPos;
+        GameObject[] _currentSpikes = GameObject.FindGameObjectsWithTag("Spikes");
+        GameObject[] _currentObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        GameObject[] _currentKeys = GameObject.FindGameObjectsWithTag("Key");
+        // Reusing i by creating it from scrath
+        for (int i = 0; i < _currentSpikes.Length; i++)
+        {
+            Debug.Log("Destroying SPIKE");
+            Destroy(_currentSpikes[i].gameObject);
+        }
+        for (int i = 0; i < _currentObstacles.Length; i++)
+        {
+            Debug.Log("Destroying Obstacle");
+            Destroy(_currentObstacles[i].gameObject);
+        }
+        for (int i = 0; i < _currentKeys.Length; i++)
+        {
+            Debug.Log("Destroying Key");
+            Destroy(_currentKeys[i].gameObject);
+        }
+        renderLevel();
+    }
+
     public void nextLevel() 
     {
+        _levelIndex++;
         levelCount = _levelIndex + 1;
+        PlayerPrefs.SetInt("Level", _levelIndex);
         // Debug.Log($"Completed level {_level-1}, and moving on to {_level}");
         // I'm so confused right now
         Debug.Log("YOU WON!!! Rendering next level...");
@@ -181,6 +432,7 @@ public class Level : MonoBehaviour
         //     Debug.Log(line);
         // }
         levelCount = _levelIndex + 1;
+        PlayerPrefs.SetInt("Level", _levelIndex);
         Debug.Log(_levelIndex);
         Debug.Log(_levels.GetLength(0));
         if (_levelIndex == _levels.GetLength(0))
@@ -235,7 +487,7 @@ public class Level : MonoBehaviour
             } 
         }
         // _currentLevel++;
-        _levelIndex++; // _currentLevel variable is now unused. Use the _levelIndex for array values.
+        // _levelIndex++; // _currentLevel variable is now unused. Use the _levelIndex for array values.
         // Reset the position values after rendering level to prepare for next level advancement
         x = 17.3f;
         z = 62.8f;

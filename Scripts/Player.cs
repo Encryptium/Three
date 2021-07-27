@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
     {   
         Debug.Log("Initiating losing functions");
         collectedKeys = 0;
-        levelObject.GetComponent<Level>().restartGame();
+        levelObject.GetComponent<Level>().restartLevel();
     }
 
 

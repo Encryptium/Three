@@ -15,7 +15,7 @@ public class MessageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.D)) // Input.GetMouseButtonDown(0) || 
         {
             Debug.Log("Message Dismissed");
             spike.GetComponent<Spike>().defeatOn = false;

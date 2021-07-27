@@ -110,12 +110,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelIndex: 0
+  levelCount: 0
   obstaclePrefab: {fileID: 5483881977772173126, guid: bbac4314551264e28a19b82a712fba3b, type: 3}
   obstacleContainer: {fileID: 0}
   keyPrefab: {fileID: 6971058521886466878, guid: 7602b1fa4a6154129bf88d35411d1cca, type: 3}
   keyContainer: {fileID: 0}
   spikePrefab: {fileID: 7571234121763545172, guid: eb34e4d3f38994ee2bb1caef3c68a5a2, type: 3}
   spikeContainer: {fileID: 0}
+  beatModal: {fileID: 8815183990389306216, guid: 9e04562fcd75a4c3b883f89b70dcff17, type: 3}
 --- !u!82 &2987981357781950718
 AudioSource:
   m_ObjectHideFlags: 0
