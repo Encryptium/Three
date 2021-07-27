@@ -6,9 +6,7 @@ Three is a simple leveling game made in Unity with C#.
 ## Download the Game!
 Three works on macOS & Windows. Choose your version.
 
-[macOS](https://three.jonathan2018.repl.co/three-updater/macOS/v2.0.5.zip)
-
-[Windows](https://three.jonathan2018.repl.co/three-updater/Windows/v2.0.5.zip)
+[Download Page](https://three.jonathan2018.repl.co/status/)
 
 ### Why is it called Three
 It is called `Three` because each level has three keys, and it is your goal to collect all of them
