@@ -19,6 +19,7 @@ public class Updater : MonoBehaviour
 
     void CheckForUpdates()
     {
+        versionText.text = Application.version;
         // Debug.Log(Application.version); // 16
         string OS = SystemInfo.operatingSystem.ToString();
         // OS = "WEBGL";
@@ -61,14 +62,13 @@ public class Updater : MonoBehaviour
         {
             Debug.Log("Operating System does not support online updates from the Three Entertainment Servers.");
         } */
-        versionText.text = Application.version;
     }
     
     string RetrieveNewestVersion() 
     {
         var client = new System.Net.WebClient();
         // WebClient client = new WebClient();
-        Stream stream = client.OpenRead("https://Three.jonathan2018.repl.co/three-updater/latest.txt");
+        Stream stream = client.OpenRead("https://Three.jonathan2018.repl.co/update/latest.txt");
         StreamReader reader = new StreamReader(stream);
         String content = reader.ReadToEnd();
         return content;

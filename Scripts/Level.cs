@@ -188,7 +188,7 @@ public class Level : MonoBehaviour
             "   #  ####", 
             "   #  #   ",
             "   #  #^ ^",
-            "^ ^   #   ",
+            "^     #   ",
             "#$#     ^ ",
             "###   ###^",
             "    ^    $",
@@ -236,7 +236,7 @@ public class Level : MonoBehaviour
         },
 
         {
-            "$^   ####^#",
+            "$^   ###^#",
             "   ^    ^#", 
             "####### ##",
             "          ",
@@ -252,7 +252,7 @@ public class Level : MonoBehaviour
             "###     ##",
             "^   ^$^  ^", 
             "^    ^   ^",
-            "^    ^   ^",
+            "^    ^    ",
             "#### ^ ## ",
             "       ^$ ",
             " # ^# #^##",
@@ -275,7 +275,7 @@ public class Level : MonoBehaviour
         },
 
         {
-            " $  ^  ^  ",
+            " $   ^  ^ ",
             "^ ^  ^ $  ", 
             "       ^  ",
             "     ^   ^",
@@ -332,7 +332,7 @@ public class Level : MonoBehaviour
         player.transform.position = _resetPos;
         _levelIndex = 0;
         levelCount = _levelIndex + 1;
-        PlayerPrefs.SetInt("Level", _levelIndex);
+        PlayerPrefs.SetInt("Level", 0);
         GameObject[] _currentSpikes = GameObject.FindGameObjectsWithTag("Spikes");
         GameObject[] _currentObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         GameObject[] _currentKeys = GameObject.FindGameObjectsWithTag("Key");
@@ -352,7 +352,7 @@ public class Level : MonoBehaviour
             Debug.Log("Destroying Key");
             Destroy(_currentKeys[i].gameObject);
         }
-        nextLevel();
+        renderLevel();
     }
 
     public void restartLevel() {

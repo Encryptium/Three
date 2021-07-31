@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     public GameObject levelObject;
     public GameObject victoryModal;
+    private float horizontalInput;
+    private float verticalInput;
 
     // Start is called before the first frame update
     void Start()
@@ -39,35 +41,35 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(transform.position.x, -8.8f, transform.position.z);
         // transform.rotation = new Vector3(0f, 0f, 0f);
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(verticalInput, 0, -horizontalInput);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        // remember in unity, y is vertical. 
+        // In Unity3D, y value is height 
 
         // Set bounds of movement for player
         if (transform.position.x > 17.5f) {
-            Debug.Log("x back bounds reached");
+            Debug.Log("Back bounds reached");
             transform.position = new Vector3 (17.5f, transform.position.y, transform.position.z);
-            // 44.59
+            // 44.59qq
         }
-        else if (transform.position.x < -1.28f) 
+        if (transform.position.x < -1.28f) // -1.28
         {
-            Debug.Log("x front bounds reached");
+            Debug.Log("Front bounds reached");
             transform.position = new Vector3 (-1.28f, transform.position.y, transform.position.z);
         }
-        else if (transform.position.z > 63.26f) 
+        if (transform.position.z > 63.26f) 
         {
             //53.83073f
-            Debug.Log("z left bounds reached");
+            Debug.Log("Left bounds reached");
             transform.position = new Vector3 (transform.position.x, transform.position.y, 63.26f);
         }
         //44.59 < this is z-right bounds
-        else if (transform.position.z < 44.59f)
+        if (transform.position.z < 44.59f)
         {
-            Debug.Log("z right bounds reached");
+            Debug.Log("Right bounds reached");
             transform.position = new Vector3 (transform.position.x, transform.position.y, 44.59f);
         }
     }
