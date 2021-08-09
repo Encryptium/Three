@@ -6,7 +6,7 @@ using UnityEngine;
 public class KeyManager : MonoBehaviour
 {
     // public AudioClip collectedClip;
-    public AudioClip audio;
+    public AudioClip collectAudio;
     // [SerializeField]
     // public int collectedKeys = 0;
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class KeyManager : MonoBehaviour
             player.GetComponent<Player>().collectedKeys += 1;
             
             // Play 'bling' sound effect
-            AudioSource.PlayClipAtPoint(audio, this.gameObject.transform.position);
+            AudioSource.PlayClipAtPoint(collectAudio, this.gameObject.transform.position);
 
             // Destroy gameObject to look  like ocollected.
             Destroy(this.gameObject);
