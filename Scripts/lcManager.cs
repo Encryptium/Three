@@ -23,8 +23,10 @@ public class lcManager : MonoBehaviour
         level = levelObject.GetComponent<Level>().levelCount;
         levelCounter.text = level.ToString();
 
+        // 124.1, -43.6, 0
+
         // Reposition Counter for two-digit level #s
-        if (level >= 10) {
+        /* if (level >= 10) {
             // levelCounter.Translate.x = 106.9f;
             levelCounter.transform.position = new Vector3(165f, 625f, transform.position.z);
             // levelCounter.transform.position.x = 124.1f;
@@ -32,6 +34,6 @@ public class lcManager : MonoBehaviour
             // transform.Translate.x = 124.1f;
             levelCounter.transform.position = new Vector3(192f, 625f, transform.position.z);
             // levelCounter.transform.position.x = 124.1f;
-        }
+        } */
     }
 }

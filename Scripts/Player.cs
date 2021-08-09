@@ -29,13 +29,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement(); // Start listening to player movement control keys
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+            _speed = 7.5f;
+        } else {
+            _speed = 4f;
+        }
+
+        playerMovement(_speed); // Start listening to player movement control keys
         checkKeys(); // Check amount of keys
 
     }
 
     // playerMovement moves the player based on the combination of keypresses
-    void playerMovement()
+    void playerMovement(float speed)
     {
         // Pin player to the surface and keep rotation
         transform.position = new Vector3(transform.position.x, -8.8f, transform.position.z);
@@ -45,7 +51,7 @@ public class Player : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(verticalInput, 0, -horizontalInput);
-        transform.Translate(direction * _speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
 
         // In Unity3D, y value is height 
 
