@@ -6,6 +6,7 @@ public class MessageManager : MonoBehaviour
 {
     // public GameObject levelObject;
     public GameObject spike;
+    // public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,10 @@ public class MessageManager : MonoBehaviour
         {
             Debug.Log("Message Dismissed");
             spike.GetComponent<Spike>().defeatOn = false;
+            if (GameObject.FindGameObjectWithTag("Player") != null) 
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().canMove = true;
+            }
             Destroy(this.gameObject);
         }
     }

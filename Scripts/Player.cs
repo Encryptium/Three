@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
+    public bool canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If shift key is active, increase speed
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
             _speed = 7.5f;
         } else {
@@ -43,6 +46,11 @@ public class Player : MonoBehaviour
     // playerMovement moves the player based on the combination of keypresses
     void playerMovement(float speed)
     {
+        // If messages are closed, then player can move
+        if (!canMove) {
+            return; // return; if player can't move
+        }
+
         // Pin player to the surface and keep rotation
         transform.position = new Vector3(transform.position.x, -8.8f, transform.position.z);
         // transform.rotation = new Vector3(0f, 0f, 0f);
@@ -97,6 +105,7 @@ public class Player : MonoBehaviour
             collectedKeys = 0; // Reset keys after player has won
             transform.position = _resetPos;
             // CaseInsensitiveComparer=an
+            canMove = false;
             Instantiate(victoryModal);
             levelObject.GetComponent<Level>().nextLevel();
         }
@@ -104,8 +113,9 @@ public class Player : MonoBehaviour
 
     public void lost() 
     {   
-        Debug.Log("Initiating losing functions");
+        Debug.Log("Restarting Level");
         collectedKeys = 0;
+        canMove = false;
         levelObject.GetComponent<Level>().restartLevel();
     }
 

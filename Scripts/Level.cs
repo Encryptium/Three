@@ -36,6 +36,7 @@ public class Level : MonoBehaviour
     private GameObject _spikeInstantiation;
     private Vector3 _resetPos = new Vector3(-1f, -8.8f, 44.59f);
     public GameObject beatModal;
+    // public GameObject player;
     
     // private GameObject[] _currentKeys = GameObject.FindGameObjectsWithTag("Key");
     // Store the level formats in a 2D Array.
@@ -361,8 +362,7 @@ public class Level : MonoBehaviour
         GameObject[] _currentSpikes = GameObject.FindGameObjectsWithTag("Spikes");
         GameObject[] _currentObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         GameObject[] _currentKeys = GameObject.FindGameObjectsWithTag("Key");
-        // Reusing i by creating it from scrath
-        for (int i = 0; i < _currentSpikes.Length; i++)
+        for (int i = 0; i < _currentSpikes.Length; i++)     
         {
             Debug.Log("Destroying SPIKE");
             Destroy(_currentSpikes[i].gameObject);
