@@ -3,7 +3,10 @@ guid: 3aeee6b8823a9416ba82d8a5ebff1838
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - resetBtn: {instanceID: 0}
+  - resetMessage: {fileID: 1578068169000447853, guid: 188b943fda82f438a8027d31a16a16b3, type: 3}
+  - HTP: {fileID: 6228713867995892521, guid: 8a064c2c621994cd58bcf51ea2c395cb, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

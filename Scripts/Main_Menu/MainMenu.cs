@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public Button resetBtn;
     public GameObject resetMessage;
+    public GameObject HTP;
 
     void Update() {
         // Debug.Log(PlayerPrefs.GetInt("Level"));
@@ -26,6 +27,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void howToPlay() {
-        Debug.Log("How to play menu opening.");
+        // Debug.Log("How to play menu opening.");
+        Instantiate(HTP);
     }
 }
